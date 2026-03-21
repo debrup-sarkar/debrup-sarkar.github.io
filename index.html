@@ -219,6 +219,7 @@
     <li><a href="#projects">Projects</a></li>
     <li><a href="#teaching">Teaching</a></li>
     <li><a href="#writing">Writing</a></li>
+    <li><a href="#education">Demos</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -344,6 +345,33 @@
       </a>
     </div>
     -->
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <h2>Demonstrations</h2>
+    <p style="font-size:.95rem;max-width:580px;margin-bottom:1.8rem;">
+      Short, self-contained demonstrations of ideas I find worth understanding deeply. Code for each is on GitHub.
+    </p>
+
+    <div style="background:var(--bg-card);border:1px solid var(--rule);border-radius:4px;padding:1.6rem;">
+      <p style="font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.08em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:.5rem;">
+        Bayesian Computation · Markov Chain Monte Carlo
+      </p>
+      <h3 style="font-family:var(--ff-serif);font-size:1.2rem;font-weight:500;color:var(--ink);margin-bottom:.9rem;">
+        Metropolis–Hastings on a Bimodal Target
+      </h3>
+      <img src="mh_demo.gif" alt="Metropolis-Hastings animation" 
+           style="width:100%;border-radius:3px;border:1px solid var(--rule);margin-bottom:1.2rem;"/>
+      <p style="font-size:.93rem;max-width:580px;">
+        The target is a bimodal Gaussian mixture — two modes at different scales, the kind of distribution a unimodal proposal struggles with. 
+        The chain starts at $x = 0$ and proposes moves from $q(x' \mid x) = \mathcal{N}(x,\, \sigma^2)$. 
+        A proposed move to $x'$ is accepted with probability $\alpha = \min\!\left(1,\, \frac{p(x')}{p(x)}\right)$, 
+        rejected otherwise — which means the chain spends time proportional to $p(x)$ without ever needing the normalising constant.
+        Watch the histogram: early frames are noisy and the chain is stuck near one mode; by $n \approx 5000$ the empirical distribution has converged to the true density. 
+        The residual roughness at late frames is autocorrelation — consecutive samples are not independent, which is the price you pay for using a local proposal.
+      </p>
+    </div>
   </section>
 
   <!-- Contact -->
