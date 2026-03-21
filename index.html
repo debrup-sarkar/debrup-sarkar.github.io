@@ -372,6 +372,25 @@
         The residual roughness at late frames is autocorrelation — consecutive samples are not independent, which is the price you pay for using a local proposal.
       </p>
     </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--rule);border-radius:4px;padding:1.6rem;margin-top:1.6rem;">
+      <p style="font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.08em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:.5rem;">
+        Bayesian Nonparametrics · Kernel Methods
+      </p>
+      <h3 style="font-family:var(--ff-serif);font-size:1.2rem;font-weight:500;color:var(--ink);margin-bottom:.9rem;">
+        Gaussian Process Regression · RBF Kernel
+      </h3>
+      <img src="gp_demo.gif" alt="Gaussian Process animation"
+           style="width:100%;border-radius:3px;border:1px solid var(--rule);margin-bottom:1.2rem;"/>
+      <p style="font-size:.93rem;max-width:580px;">
+        A Gaussian Process places a prior directly over functions: before seeing any data, every smooth function consistent with the kernel is equally plausible — that is the wide teal band on the left panel with label <em>prior</em>.
+        The kernel here is the RBF, $k(x, x') = \sigma_f^2 \exp\!\left(-\frac{(x-x')^2}{2\ell^2}\right)$, which encodes the belief that nearby inputs produce similar outputs.
+        As observations arrive one by one, the posterior contracts: the uncertainty band collapses near data points while remaining wide in unexplored regions.
+        The right panel shows five draws from the posterior — each is a plausible function given the data seen so far. Notice they all pass close to the observations but diverge freely elsewhere.
+        This is Bayesian inference over an infinite-dimensional object, made tractable by the fact that any finite collection of function values is jointly Gaussian.
+      </p>
+    </div>
+
   </section>
 
   <!-- Contact -->
