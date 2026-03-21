@@ -168,10 +168,41 @@
     .delay-1{animation-delay:.1s;}.delay-2{animation-delay:.22s;}
     .delay-3{animation-delay:.34s;}.delay-4{animation-delay:.46s;}
 
+    /* ── Hamburger ── */
+    .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.3rem;}
+    .nav-toggle span{display:block;width:22px;height:2px;background:var(--ink-mid);border-radius:2px;transition:transform .25s,opacity .25s;}
+    .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .nav-toggle.open span:nth-child(2){opacity:0;}
+    .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    /* ── Tablet ── */
+    @media(max-width:768px){
+      html{font-size:17px;}
+      main{padding:0 1.6rem;}
+      section{padding:3rem 0;}
+      #about{padding-top:3.5rem;}
+      .nav-links{gap:1.2rem;}
+      .nav-links a{font-size:.72rem;}
+    }
+
+    /* ── Mobile ── */
     @media(max-width:600px){
-      nav{padding:.8rem 1.2rem;}
+      html{font-size:16px;}
+      nav{padding:.8rem 1.2rem;position:relative;flex-wrap:wrap;gap:0;}
+      .nav-toggle{display:flex;}
+      .nav-links{display:none;flex-direction:column;gap:0;list-style:none;width:100%;background:var(--bg);border-top:1px solid var(--rule);padding:.5rem 0;margin-top:.5rem;}
+      .nav-links.open{display:flex;}
+      .nav-links li{width:100%;}
+      .nav-links a{display:block;padding:.6rem .2rem;font-size:.82rem;letter-spacing:.04em;border-bottom:1px solid var(--rule);}
+      .nav-links li:last-child a{border-bottom:none;}
       main{padding:0 1.2rem;}
+      section{padding:2.6rem 0;}
+      #about{padding-top:2.8rem;}
+      .hero-name{font-size:2.6rem;}
       .writing-entry{grid-template-columns:1fr;gap:.2rem;}
+      .project-card{padding:1.1rem 1.2rem;}
+      .hero-links{gap:.6rem;}
+      .hero-links a{font-size:.7rem;padding:.35rem .75rem;}
     }
   </style>
 </head>
@@ -179,7 +210,10 @@
 
 <nav>
   <span class="nav-name">D<span>.</span>Sarkar</span>
-  <ul class="nav-links">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#interests">Research</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -318,4 +352,26 @@
     <p style="max-width:480px;">
       Open to conversations about research, collaborations on quantitative or ML problems, and opportunities in data science, quantitative finance, or GenAI.
     </p>
-    <p>Reach me at <a href="/cdn-cgi/l/email-protection#a5d6c4d7cec4d7c1c0c7d7d0d58bc8c0c6cde5c2c8c4ccc98bc6cac8"><span class="__cf_email__" data-cfemail="d1a2b0a3bab0a3b5b4b3a3a4a1ffbcb4b2b991b6bcb0b8bdffb2bebc">[email&#160;
+    <p>Reach me at <a href="/cdn-cgi/l/email-protection#a5d6c4d7cec4d7c1c0c7d7d0d58bc8c0c6cde5c2c8c4ccc98bc6cac8"><span class="__cf_email__" data-cfemail="d1a2b0a3bab0a3b5b4b3a3a4a1ffbcb4b2b991b6bcb0b8bdffb2bebc">[email&#160;protected]</span></a></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2025 Debrup Sarkar &nbsp;·&nbsp; <a href="https://github.com/debrup-sarkar" target="_blank">GitHub</a></p>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    links.classList.toggle('open');
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    toggle.classList.remove('open');
+    links.classList.remove('open');
+  }));
+</script>
+</body>
+</html>
