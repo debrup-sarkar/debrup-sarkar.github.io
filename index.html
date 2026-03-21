@@ -391,6 +391,26 @@
       </p>
     </div>
 
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--rule);border-radius:4px;padding:1.6rem;margin-top:1.6rem;">
+      <p style="font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.08em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:.5rem;">
+        Quantitative Finance · Stochastic Volatility
+      </p>
+      <h3 style="font-family:var(--ff-serif);font-size:1.2rem;font-weight:500;color:var(--ink);margin-bottom:.9rem;">
+        Heston Model · Correlated Brownian Motions
+      </h3>
+      <img src="heston_demo.gif" alt="Heston model animation"
+           style="width:100%;border-radius:3px;border:1px solid var(--rule);margin-bottom:1.2rem;"/>
+      <p style="font-size:.93rem;max-width:580px;">
+        Black-Scholes assumes constant volatility — the Heston model relaxes this by letting the variance $v_t$ itself follow a stochastic process.
+        The variance evolves as a CIR process, $dv_t = \kappa(\theta - v_t)\,dt + \xi\sqrt{v_t}\,dW_t^v$, which is mean-reverting around $\theta$ at speed $\kappa$.
+        The two Brownian motions driving $S_t$ and $v_t$ are correlated at $\rho = -0.7$ — the leverage effect: when the stock falls, volatility rises.
+        The right panel reveals what this buys over GBM: the Heston return distribution has fatter tails and a leftward skew, matching observed equity return distributions far better than the Gaussian implied by constant-vol models.
+        The middle panel shows individual variance paths clustering near $\theta = 0.04$ but occasionally spiking — exactly the volatility clustering seen in real markets.
+      </p>
+    </div>
+
   </section>
 
   <!-- Contact -->
