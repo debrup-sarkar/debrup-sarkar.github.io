@@ -454,6 +454,28 @@
       </p>
     </div>
 
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--rule);border-radius:4px;padding:1.6rem;margin-top:1.6rem;">
+      <p style="font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.08em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:.5rem;">
+        Bayesian Statistics · Quantitative Finance · No ML background required
+      </p>
+      <h3 style="font-family:var(--ff-serif);font-size:1.2rem;font-weight:500;color:var(--ink);margin-bottom:.9rem;">
+        Bayesian Regime Detection · When Does the Market Know Something Has Changed?
+      </h3>
+      <img src="bayesian_finance_demo.gif" alt="Bayesian regime detection animation"
+           style="width:100%;border-radius:3px;border:1px solid var(--rule);margin-bottom:1.2rem;"/>
+      <p style="font-size:.93rem;max-width:580px;">
+        Imagine a stock quietly shifts from random drift to a sustained upward bias — perhaps because informed buyers start accumulating. The price chart alone tells you almost nothing for weeks. How quickly can a rational observer figure it out?
+      </p>
+      <p style="font-size:.93rem;max-width:580px;margin-top:.7rem;">
+        The Bayesian approach starts with a prior belief — "this stock goes up roughly half the time" — and updates it every day using Bayes' rule. The teal band is the 90% credible interval: the range of values we are 90% confident the true probability lives in. As more up-days accumulate, the band narrows and drifts upward. The model flags a regime change only once the <em>entire</em> credible interval is above 0.5 — meaning even the pessimistic end of our uncertainty agrees something has shifted.
+      </p>
+      <p style="font-size:.93rem;max-width:580px;margin-top:.7rem;">
+        The right panel is the key comparison. The frequentist rolling window (dashed orange) simply counts up-days in the last 20 sessions and reports the fraction — no memory of the past, no notion of uncertainty. The Bayesian model, by continuously weighing all evidence with a forgetting factor that down-weights stale data, consistently detects the regime shift earlier. The vertical lines show exactly which day each method figured it out. The hidden regime-shift marker on the price chart is only revealed once the Bayesian model is confident — a deliberate choice to show what the model found before the price made it obvious.
+      </p>
+    </div>
+
   </section>
 
   <!-- Contact -->
