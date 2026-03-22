@@ -219,7 +219,7 @@
     <li><a href="#projects">Projects</a></li>
     <li><a href="#teaching">Teaching</a></li>
     <li><a href="#writing">Writing</a></li>
-    <li><a href="#education">Demos</a></li>
+    <li><a href="#education">Notes &amp; Explorations</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -349,7 +349,7 @@
 
   <!-- Education -->
   <section id="education">
-    <h2>Demonstrations</h2>
+    <h2>Notes &amp; Explorations</h2>
     <p style="font-size:.95rem;max-width:580px;margin-bottom:1.8rem;">
       Short, self-contained demonstrations of ideas I find worth understanding deeply. Code for each is on GitHub.
     </p>
@@ -413,27 +413,6 @@
 
     </div>
 
-    <div style="background:var(--bg-card);border:1px solid var(--rule);border-radius:4px;padding:1.6rem;margin-top:1.6rem;">
-      <p style="font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.08em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:.5rem;">
-        Computational Mechanics · Nonlinear FEA · FEniCS
-      </p>
-      <h3 style="font-family:var(--ff-serif);font-size:1.2rem;font-weight:500;color:var(--ink);margin-bottom:.9rem;">
-        NeoHookean Beam · Large-Deformation Bending
-      </h3>
-      <img src="neohookean_beam.gif" alt="NeoHookean beam deformation animation"
-           style="width:100%;border-radius:3px;border:1px solid var(--rule);margin-bottom:1.2rem;"/>
-      <p style="font-size:.93rem;max-width:580px;">
-        Classical linear elasticity breaks down at large strains — the stress-strain relationship is no longer linear and the geometry changes enough to matter.
-        The NeoHookean model is a hyperelastic constitutive law defined by a strain energy density
-        $W = \frac{\mu}{2}(\bar{I}_1 - 3) - \mu \ln J + \frac{\lambda}{2}(J-1)^2$,
-        where $J = \det \mathbf{F}$ is the Jacobian of the deformation gradient and the $J^2$ term penalises volumetric change.
-        The beam is clamped at the left face and loaded incrementally at the tip.
-        Each load step solves the nonlinear variational problem via Newton's method implemented in FEniCS legacy.
-        Colour encodes displacement magnitude $|u|$ — deep blue at the fixed root, yellow at the free tip.
-        The right panel shows the nonlinear load-displacement response, which deviates from the linear prediction as strains grow.
-      </p>
-    </div>
-
     </div>
 
     <div style="background:var(--bg-card);border:1px solid var(--rule);border-radius:4px;padding:1.6rem;margin-top:1.6rem;">
@@ -451,6 +430,27 @@
         The predict step propagates uncertainty forward through the dynamics: $\mathbf{P}_{k|k-1} = \mathbf{F}\mathbf{P}_{k-1}\mathbf{F}^\top + \mathbf{Q}$.
         The update step fuses the new measurement via the Kalman gain $\mathbf{K}_k = \mathbf{P}_{k|k-1}\mathbf{H}^\top(\mathbf{H}\mathbf{P}_{k|k-1}\mathbf{H}^\top + \mathbf{R})^{-1}$, pulling the estimate toward the observation in proportion to its relative reliability.
         The bottom-right panel shows the innovation sequence $\nu_k = z_k - \mathbf{H}\hat{\mathbf{x}}_{k|k-1}$ — a correctly tuned filter produces innovations that are zero-mean white noise, which is a diagnostic quant practitioners actually check.
+      </p>
+    </div>
+
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--rule);border-radius:4px;padding:1.6rem;margin-top:1.6rem;">
+      <p style="font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.08em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:.5rem;">
+        Optimisation · Deep Learning
+      </p>
+      <h3 style="font-family:var(--ff-serif);font-size:1.2rem;font-weight:500;color:var(--ink);margin-bottom:.9rem;">
+        Optimizer Showdown · GD vs Momentum vs RMSProp vs Adam
+      </h3>
+      <img src="optimizer_demo.gif" alt="Optimizer comparison animation"
+           style="width:100%;border-radius:3px;border:1px solid var(--rule);margin-bottom:1.2rem;"/>
+      <p style="font-size:.93rem;max-width:580px;">
+        All four optimizers start at the same point on the Beale function — a non-convex landscape with a narrow curved valley and a global minimum at $(3,\, 0.5)$.
+        Vanilla gradient descent crawls cautiously along the gradient direction, easily trapped by unfavourable curvature.
+        Momentum accumulates a velocity vector $v_t = \beta v_{t-1} - \alpha \nabla f$, letting the iterate build speed along consistent directions and overshoot through shallow traps.
+        RMSProp adapts the learning rate per parameter using a running average of squared gradients, rescaling aggressive steps in steep directions.
+        Adam combines both ideas: first and second moment estimates with bias correction, giving it the most reliable convergence across landscape geometries.
+        The convergence panel shows what matters in practice — Adam reaches the minimum in a fraction of the iterations that vanilla gradient descent requires.
       </p>
     </div>
 
